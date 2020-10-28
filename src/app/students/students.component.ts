@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./students.component.scss']
 })
 export class StudentsComponent implements OnInit {
-  isClicked = "";
+  studentName = 'nothing';
   canAddStudent = false;
-  name = "foulenjj";
+  name = '';
+  isStudentAdded = false;
   constructor() {
     setTimeout(() => {
       this.canAddStudent = true;
@@ -22,8 +23,9 @@ export class StudentsComponent implements OnInit {
 
 
   onStudentAdd(event: Event) {
-    this.isClicked = "clicked "+this.name;
+    this.studentName = 'name is : ' + this.name;
     console.log(event);
+    this.isStudentAdded = true;
   }
 
 }

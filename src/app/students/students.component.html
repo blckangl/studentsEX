@@ -1,7 +1,12 @@
 
 <button [disabled]="!canAddStudent" (click)="onStudentAdd($event)">Add Student</button>
 <input [(ngModel)]="name"/>
-<p>{{isClicked}}</p>
+<p *ngIf="isStudentAdded ; else studentNotAdded" >{{studentName}}</p>
+
+<ng-template #studentNotAdded>
+  <p>No student is Added</p>
+</ng-template>
+
 <app-student></app-student>
 <app-student></app-student>
 <app-student></app-student>
