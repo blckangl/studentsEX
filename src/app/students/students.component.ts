@@ -12,7 +12,7 @@ export class StudentsComponent implements OnInit {
   age = 0;
   isStudentAdded = false;
   warning = false;
-  students = [];
+  students = [{Name: 'dghia', Age: 100}, {Name: 'safa', Age: 50}];
 
   constructor() {
     setTimeout(() => {
@@ -29,11 +29,10 @@ export class StudentsComponent implements OnInit {
     if (this.name === '') {
       return;
     }
-    if(this.age == 0){
+    if (this.age == 0) {
       this.warning = true;
       return;
     }
-
 
     this.warning = false;
     this.studentName = 'name is : ' + this.name;

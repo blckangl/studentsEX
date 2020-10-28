@@ -2,14 +2,14 @@
 <app-success *ngIf="!studentNotAdded"></app-success>
 <button [disabled]="!canAddStudent" (click)="onStudentAdd($event)">Add Student</button>
 <input  [ngClass]="{'textRed':isTextRed()}"   [(ngModel)]="name"/>
-<input  [(ngModel)]="age"/>
+<input type="number"  [(ngModel)]="age"/>
 <p  *ngIf="isStudentAdded ; else studentNotAdded" >{{studentName}}</p>
 
 <ng-template #studentNotAdded>
   <p>No student is Added</p>
 </ng-template>
 
-<app-student *ngFor="let std of students"></app-student>
+<app-student  *ngFor="let student of students" [name]="student.Name" [Age]="student.Age" ></app-student>
 
 
 
