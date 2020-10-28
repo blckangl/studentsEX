@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-students',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./students.component.scss']
 })
 export class StudentsComponent implements OnInit {
-  studentName = 'nothing';
+  studentName = '';
   canAddStudent = false;
-  name = '';
+  name = 'No name';
+  age = 0;
   isStudentAdded = false;
+  warning = false;
+  students = [];
+
   constructor() {
     setTimeout(() => {
       this.canAddStudent = true;
@@ -21,11 +25,28 @@ export class StudentsComponent implements OnInit {
   }
 
 
-
   onStudentAdd(event: Event) {
+    if (this.name === '') {
+      return;
+    }
+    if(this.age == 0){
+      this.warning = true;
+      return;
+    }
+
+
+    this.warning = false;
     this.studentName = 'name is : ' + this.name;
-    console.log(event);
+    this.students.push({Name: this.name, Age: this.age});
     this.isStudentAdded = true;
+  }
+
+  isTextRed() {
+    if (this.name !== 'No name') {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }
